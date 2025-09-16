@@ -1,4 +1,5 @@
 library(shiny)
+pak::pak("hadley/useself")
 
 generate_story <- function(noun, verb, adjective, adverb) {
   glue::glue(
