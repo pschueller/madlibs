@@ -1,6 +1,4 @@
 library(shiny)
-library(pak)
-pak::pak("hadley/useself")
 
 generate_story <- function(noun, verb, adjective, adverb) {
   glue::glue(
@@ -10,6 +8,7 @@ generate_story <- function(noun, verb, adjective, adverb) {
   "
   )
 }
+cat("This is a message\n", file = stderr())
 
 ui <- fluidPage(
   titlePanel("Mad Libs Game"),
@@ -27,6 +26,8 @@ ui <- fluidPage(
     )
   )
 )
+cat("This is another message\n", file = stderr())
+
 
 server <- function(input, output) {
   story <- eventReactive(input$submit, {
